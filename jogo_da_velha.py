@@ -65,4 +65,4 @@ def verificarGanhador(board):
          if (board[i][j] == branco):
             return False
 
-   return "Empate"
+   return "EMPATE"

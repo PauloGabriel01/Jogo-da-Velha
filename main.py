@@ -1,5 +1,6 @@
 from jogo_da_velha import criarBoard, printBoard, getInputValido, \
                         verificarMovimento, fazMovimento,verificarGanhador
+from minimax import movimentoIA
 
 jogador = 0 # Jogador 1
 board = criarBoard()
@@ -7,8 +8,12 @@ ganhador = verificarGanhador(board)
 
 while (not ganhador):
    printBoard(board)
-   i = getInputValido('Digite a linha: ')
-   j = getInputValido('Digite a coluna: ')
+   print("==" * 20)
+   if (jogador == 0):
+      i,j = movimentoIA(board, jogador)
+   else:
+      i = getInputValido('Digite a linha: ')
+      j = getInputValido('Digite a coluna: ')
 
    if (verificarMovimento(board, i, j)):
       fazMovimento(board, i, j, jogador)
